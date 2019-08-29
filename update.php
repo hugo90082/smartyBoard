@@ -7,7 +7,7 @@
     
     try
     {
-        $_SESSION['NoValue'] = "";
+        
 
         if($_POST["cancel"] == "cancel"){
 
