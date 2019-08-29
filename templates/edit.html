@@ -1,0 +1,50 @@
+{{include file="header.html"}}
+    <body>
+
+        <div class="container">
+
+            <form method="post" action="./update.php" class="form-horizontal">
+                
+                <fieldset>
+
+                    <!-- Form Name -->
+                    <legend><h2>修改留言</h2></legend>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="topic">標題:</label>  
+                        <div class="col-md-4">
+                            <input id="topic" name="topic" value="{{$row['topic']}}" type="text" placeholder="" class="form-control input-md">
+                        
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="content">內容:</label>  
+                        <div class="col-md-4">
+                            <textarea class="form-control input-md" id="content" name="content">{{$row['content']}}</textarea>
+                        </div>
+                    </div>
+                    <input id="msID" name="msID" type="hidden" value="{{$id}}"> 
+
+                        
+                    <h4><p class='text-center text-danger'>{{$smarty.session.NoValue}}</p></h4>
+
+                        
+                    <!-- Button (Double) -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="okOrCancel"></label>
+                        <div class="col-md-8">
+                            <button type="submit" id="ok" name="ok" class="btn btn-success" value="OK">確定修改</button>
+                            <button type="submit" id="cancel" name="cancel" class="btn btn-danger" value="cancel">取消</button>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </form>
+
+        </div>
+
+    </body>
+</html>

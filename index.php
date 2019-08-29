@@ -12,10 +12,6 @@
     // 4. 結束連線
     $db = null;
     @$memberMail = $_SESSION['memberMail'];
-    //$_SESSION['memberID'] = "";
-
-    
-
 
     
     $smarty->assign('result', $result);

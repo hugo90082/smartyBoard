@@ -1,52 +1,39 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2019-08-29 05:59:35
+/* Smarty version 3.1.34-dev-7, created on 2019-08-29 08:47:15
   from 'C:\xampp\htdocs\smartyBoard\templates\login.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5d674da72988f6_42936093',
+  'unifunc' => 'content_5d6774f3147282_87052468',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ae96bfb91e11828ce507d0a40c6b6ff3437ec950' => 
     array (
       0 => 'C:\\xampp\\htdocs\\smartyBoard\\templates\\login.html',
-      1 => 1567051101,
+      1 => 1567061227,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
+    'file:header.html' => 1,
   ),
 ),false)) {
-function content_5d674da72988f6_42936093 (Smarty_Internal_Template $_smarty_tpl) {
-?><!DOCTYPE html>
-<html lang="en">
-	<head>
-		<title>Message board</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-		<?php echo '<script'; ?>
- src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"><?php echo '</script'; ?>
->
-		<?php echo '<script'; ?>
- src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"><?php echo '</script'; ?>
->
-	</head>
+function content_5d6774f3147282_87052468 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+
 	<body>
 
 		<div class="container">
 			<form method="post" action="./checkLogin.php" class="form-horizontal">
-			
 
 				<fieldset>
 				
 				<!-- Form Name -->
 					<legend><h2>登入</h2></legend>
-
-                        
 
 				<!-- Text input-->
 					<div class="form-group">
