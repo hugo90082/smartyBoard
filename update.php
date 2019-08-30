@@ -7,7 +7,7 @@
     
     try
     {
-        
+        loginCheck();
 
         if($_POST["cancel"] == "cancel"){
 

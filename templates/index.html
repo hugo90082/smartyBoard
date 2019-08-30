@@ -1,9 +1,5 @@
 {{include file="header.html"}}
-    <style>
-        .container {
-            width: 97%
-        }
-    </style>
+
     <body>
         <div class="container">
 
@@ -43,11 +39,11 @@
                         <tr>
                             <td>
                                 <a href="details.php?ID={{$row['ID']}}">
-                                    {{$row['topic']}}
+                                    <p class="limit_length">{{$row['topic']}}</p>
                                 </a>
                             </td>
                             <td>
-                                {{$row['content']}}
+                                <p class="limit_length">{{$row['content']}}</p>
                             </td>
                             <td>
                                 {{$row['mail']}}
@@ -60,16 +56,18 @@
 
                                     <form method="post" action="delete.php"> 
                                             
-                                            
+                                        {{if isset($smarty.session.memberID) && ($row['memberID'] == $smarty.session.memberID)}}
+                                       
+                                            <a href="edit.php?ID={{$row['ID']}}" class="btn btn-xs btn-info">
+                                                <span class="glyphicon glyphicon-pencil"></span> 修改</a> |
+
+                                        {{/if}}    
                                         {{if isset($smarty.session.memberID) && ($smarty.session.memberID == 1 || $row['memberID'] == $smarty.session.memberID)}}
                                             <input id="msID" name="msID" type="hidden" value="{{$row['ID']}}"> 
                                             <button type="submit" class="btn btn-xs btn-danger">
                                             <span class="glyphicon glyphicon-remove"></span> 刪除</button> |
-
-                                            <a href="edit.php?ID={{$row['ID']}}" class="btn btn-xs btn-info">
-                                                <span class="glyphicon glyphicon-pencil"></span> 修改</a> |
-
                                         {{/if}}
+ 
 
                                 <a href="details.php?ID={{$row['ID']}}" class="btn btn-primary btn-xs"> 詳細內容</a>
 

@@ -1,8 +1,10 @@
 <?php
-    header("content-type:text/html; charset=utf-8");
+    require_once 'header.php';
     $id = $_POST["msID"];
+
     try
     {
+        loginCheck();
         $db = new PDO("mysql:host=localhost;dbname=message_board;port=3306", "root", "");
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $db->exec("SET CHARACTER SET utf8");

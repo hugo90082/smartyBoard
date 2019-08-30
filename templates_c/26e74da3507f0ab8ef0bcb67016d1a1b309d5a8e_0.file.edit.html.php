@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2019-08-29 10:14:25
+/* Smarty version 3.1.34-dev-7, created on 2019-08-30 11:52:54
   from 'C:\xampp\htdocs\smartyBoard\templates\edit.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5d6789616b7477_64273158',
+  'unifunc' => 'content_5d68f1f69f3871_02932851',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '26e74da3507f0ab8ef0bcb67016d1a1b309d5a8e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\smartyBoard\\templates\\edit.html',
-      1 => 1567066407,
+      1 => 1567158773,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:header.html' => 1,
   ),
 ),false)) {
-function content_5d6789616b7477_64273158 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d68f1f69f3871_02932851 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
     <body>
@@ -39,7 +39,7 @@ $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_s
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="topic">標題:</label>  
                         <div class="col-md-4">
-                            <input id="topic" name="topic" value="<?php echo $_smarty_tpl->tpl_vars['row']->value['topic'];?>
+                            <input id="topic" maxlength="50" name="topic" value="<?php echo $_smarty_tpl->tpl_vars['row']->value['topic'];?>
 " type="text" placeholder="" class="form-control input-md">
                         
                         </div>
@@ -49,7 +49,7 @@ $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_s
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="content">內容:</label>  
                         <div class="col-md-4">
-                            <textarea class="form-control input-md" id="content" name="content"><?php echo $_smarty_tpl->tpl_vars['row']->value['content'];?>
+                            <textarea class="form-control input-md" id="content" name="content" rows="10" maxlength="200"><?php echo $_smarty_tpl->tpl_vars['row']->value['content'];?>
 </textarea>
                         </div>
                     </div>

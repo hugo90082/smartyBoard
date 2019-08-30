@@ -48,7 +48,10 @@
 	</body>
 
 	<script>
-		
+		document.getElementById('login').disabled = true;
+		password.onkeyup = function(){
+			document.getElementById('login').disabled = false;
+		}
 		mail.onkeyup = function(){
 			var mail = this.value;
 			var reg = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/;//判斷格式

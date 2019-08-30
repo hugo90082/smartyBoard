@@ -2,13 +2,14 @@
     require_once 'header.php';
 
     $id = $_GET["ID"];
-    
-
+    $memberID = $_SESSION['memberID'];
+    loginCheck();
     $db = new PDO("mysql:host=localhost;dbname=message_board;port=3306", "root", "");
     $db->exec("set names utf8");
 
-    $result = $db->prepare("select * from message where ID = :ID");
+    $result = $db->prepare("select * from message where ID = :ID and memberID = :memberID");
     $result->bindValue(':ID', $id, PDO::PARAM_STR);
+    $result->bindValue(':memberID', $memberID, PDO::PARAM_STR);
     $result->execute();
     $row = $result->fetch();
     $rowCount = $result->rowCount();

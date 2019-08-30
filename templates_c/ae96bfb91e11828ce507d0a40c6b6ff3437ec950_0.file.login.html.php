@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2019-08-29 08:47:15
+/* Smarty version 3.1.34-dev-7, created on 2019-08-30 12:07:59
   from 'C:\xampp\htdocs\smartyBoard\templates\login.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5d6774f3147282_87052468',
+  'unifunc' => 'content_5d68f57fc7fea5_99077888',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ae96bfb91e11828ce507d0a40c6b6ff3437ec950' => 
     array (
       0 => 'C:\\xampp\\htdocs\\smartyBoard\\templates\\login.html',
-      1 => 1567061227,
+      1 => 1567159666,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:header.html' => 1,
   ),
 ),false)) {
-function content_5d6774f3147282_87052468 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d68f57fc7fea5_99077888 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -75,7 +75,10 @@ $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_s
 
 	<?php echo '<script'; ?>
 >
-		
+		document.getElementById('login').disabled = true;
+		password.onkeyup = function(){
+			document.getElementById('login').disabled = false;
+		}
 		mail.onkeyup = function(){
 			var mail = this.value;
 			var reg = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/;//判斷格式

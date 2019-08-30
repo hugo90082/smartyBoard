@@ -14,4 +14,15 @@
     header("content-type:text/html; charset=utf-8");
     session_start();
 
+    function loginCheck(){
+        if (isset($_SESSION['memberID'])){
+            return true;
+        }else{
+            echo "<script> alert('尚未登入'); window.location.replace('login.php');</script>";
+            exit;
+        }
+    }
+
+
+
 ?>
