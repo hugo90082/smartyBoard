@@ -2,6 +2,7 @@
     require_once 'header.php';
     $mail = htmlspecialchars($_POST["mail"]);
     $pwd = htmlspecialchars($_POST["password"]);
+    
     try
     {
         $db = new PDO("mysql:host=localhost;dbname=message_board;port=3306", "root", "");
