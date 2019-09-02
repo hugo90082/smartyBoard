@@ -1,6 +1,5 @@
 <?php
-    header("content-type:text/html; charset=utf-8");
-    session_start();
+    require_once 'header.php';
 
     $mail = htmlspecialchars($_POST["mail"]);
     $password = htmlspecialchars($_POST["password"]);
@@ -10,7 +9,7 @@
     {
         
         
-        if(@$_POST["cancel"] == "cancel"){
+        if(isset($_POST["cancel"]) && ($_POST["cancel"] == "cancel")){
             header("location:index.php");//判斷是否按取消
 
         }else if($mail == "" ||$password == "" || $passwordCheck == "" ){ //判斷是否空值

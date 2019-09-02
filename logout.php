@@ -1,7 +1,6 @@
 <?php 
-    header("content-type:text/html; charset=utf-8");
-    session_start();
-    session_unset();
-    
+    require_once 'header.php';
+    //session_unset();
+    session_destroy();
     echo "<script> alert('登出成功'); window.location.replace('index.php');</script>";
 ?>

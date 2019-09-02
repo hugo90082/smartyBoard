@@ -22,7 +22,14 @@
             exit;
         }
     }
-
+    function loginPageCheck(){
+        if (!isset($_SESSION['memberID'])){
+            return true;
+        }else{
+            echo "<script> alert('已登入'); window.location.replace('index.php');</script>";
+            exit;
+        }
+    }
 
 
 ?>
