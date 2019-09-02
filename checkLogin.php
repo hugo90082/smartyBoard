@@ -37,5 +37,4 @@
         exit();
     }
 
-    //$smarty->display('index.html');
 	?>
