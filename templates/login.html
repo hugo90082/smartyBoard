@@ -44,25 +44,26 @@
 			</form>
 
 		</div>
+		{{include file="src.html"}}
+		<script>
+			document.getElementById('login').disabled = true;
+			password.onkeyup = function(){
+				document.getElementById('login').disabled = false;
+			}
+			mail.onkeyup = function(){
+				var mail = this.value;
+				var reg = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/;//判斷格式
 
+				if(reg.test(mail)){
+					document.getElementById('mailValue').innerHTML = "格式正確";
+					document.getElementById('login').disabled = false;
+				}else{
+					document.getElementById('mailValue').innerHTML = "mail格式不正確";
+					document.getElementById('login').disabled = true;
+				}
+			}
+		</script>
 	</body>
 
-	<script>
-		document.getElementById('login').disabled = true;
-		password.onkeyup = function(){
-			document.getElementById('login').disabled = false;
-		}
-		mail.onkeyup = function(){
-			var mail = this.value;
-			var reg = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/;//判斷格式
 
-			if(reg.test(mail)){
-				document.getElementById('mailValue').innerHTML = "格式正確";
-				document.getElementById('login').disabled = false;
-			}else{
-				document.getElementById('mailValue').innerHTML = "mail格式不正確";
-				document.getElementById('login').disabled = true;
-			}
-		}
-	</script>
 </html>

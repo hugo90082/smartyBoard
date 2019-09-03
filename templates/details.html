@@ -68,7 +68,8 @@
 			{{/if}}
 			<form method="post" action="detailsReply.php?ID={{$id}}" class="form-horizontal">		
 				<input cols="100" rows="1" maxlength="70" class="form-control input-md" id="reply" name="reply"><legend></legend>
-				<button type="submit" class="btn btn-md btn-primary pull-right" id="send" name="send" value="send">回復</button>
+				<!-- <input type="hidden" id="ID" name="ID" value="{{$id}}"> -->
+				<button class="btn btn-md btn-primary pull-right" id="send" name="send" value="send">回復</button>
 
 				<h4><p class='text-center text-danger'>{{$NoValue}}</p></h4>
 
@@ -80,3 +81,20 @@
 
 	</body>
 </html>
+<!-- <script>
+	$("#send").on("click", function(){
+		let dataToServer = {
+			reply:$("#reply").val(),
+			ID	 :$("#ID").val()
+		}
+
+		$.ajax({
+			type:"POST",
+			url:"./detailsReply.php",
+			data: dataToServer,
+            success: function(e) {
+                window.location.replace('details.php?ID={{$id}}');
+            }
+		})
+	})
+</script> -->

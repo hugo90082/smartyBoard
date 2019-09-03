@@ -38,7 +38,8 @@
 	$smarty->assign('NoValue',$NoValue);
 	$smarty->assign('resultReply',$resultReply);
 	$smarty->assign('row', $row);
-	$smarty->display('details.html');
 	unset($_SESSION['NoValue']);
+	$smarty->display('details.html');
+	
 ?>
 

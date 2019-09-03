@@ -1,6 +1,6 @@
 <?php
     require_once 'header.php';
-    $messageID = $_GET["ID"];
+    $messageID = $_POST["ID"];
     $reply = htmlspecialchars($_POST["reply"]);
     $memberID = isset($_SESSION['memberID'])?$_SESSION['memberID']:"";
 
@@ -20,13 +20,15 @@
             $db->exec("SET CHARACTER SET utf8");
             $sql = "INSERT INTO reply (ID ,messageID, memberID, reply) VALUES ('' , :messageID, :memberID, :reply);";
             $result = $db->prepare($sql);
-            $result->bindValue(':messageID',$_GET["ID"]);
+            $result->bindValue(':messageID',$messageID);
             $result->bindValue(':memberID',$memberID);
             $result->bindValue(':reply',$reply);
             
             $result->execute();
 
             $db = NULL;
+
+            
             header("location:details.php?ID=$messageID");
         }
 

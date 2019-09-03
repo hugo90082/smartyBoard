@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2019-09-02 11:04:26
+/* Smarty version 3.1.34-dev-7, created on 2019-09-03 09:57:24
   from 'C:\xampp\htdocs\smartyBoard\templates\details.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5d6cdb1a843c52_81637207',
+  'unifunc' => 'content_5d6e1ce46119b7_30272897',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c7e1a72250dddfe2426bfeb0a598437aad4b1e00' => 
     array (
       0 => 'C:\\xampp\\htdocs\\smartyBoard\\templates\\details.html',
-      1 => 1567414554,
+      1 => 1567497442,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:header.html' => 1,
   ),
 ),false)) {
-function content_5d6cdb1a843c52_81637207 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d6e1ce46119b7_30272897 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -103,7 +103,9 @@ $_smarty_tpl->_assignInScope('rowReply', $_prefixVariable1);?>
 			<form method="post" action="detailsReply.php?ID=<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 " class="form-horizontal">		
 				<input cols="100" rows="1" maxlength="70" class="form-control input-md" id="reply" name="reply"><legend></legend>
-				<button type="submit" class="btn btn-md btn-primary pull-right" id="send" name="send" value="send">回復</button>
+				<input type="hidden" id="ID" name="ID" value="<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+">
+				<button class="btn btn-md btn-primary pull-right" id="send" name="send" value="send">回復</button>
 
 				<h4><p class='text-center text-danger'><?php echo $_smarty_tpl->tpl_vars['NoValue']->value;?>
 </p></h4>
@@ -115,5 +117,25 @@ $_smarty_tpl->_assignInScope('rowReply', $_prefixVariable1);?>
 		</div>
 
 	</body>
-</html><?php }
+</html>
+<!-- <?php echo '<script'; ?>
+>
+	$("#send").on("click", function(){
+		let dataToServer = {
+			reply:$("#reply").val(),
+			ID	 :$("#ID").val()
+		}
+
+		$.ajax({
+			type:"POST",
+			url:"./detailsReply.php",
+			data: dataToServer,
+            success: function(e) {
+                window.location.replace('details.php?ID=<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+');
+            }
+		})
+	})
+<?php echo '</script'; ?>
+> --><?php }
 }
