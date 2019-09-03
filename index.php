@@ -21,3 +21,4 @@
     $smarty->display('index.html');
 
 
+?>

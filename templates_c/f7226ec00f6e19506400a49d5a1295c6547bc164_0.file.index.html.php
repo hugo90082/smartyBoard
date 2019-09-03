@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2019-09-02 09:20:56
+/* Smarty version 3.1.34-dev-7, created on 2019-09-03 12:02:02
   from 'C:\xampp\htdocs\smartyBoard\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5d6cc2d84f1a40_95452098',
+  'unifunc' => 'content_5d6e3a1ab09823_04593755',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f7226ec00f6e19506400a49d5a1295c6547bc164' => 
     array (
       0 => 'C:\\xampp\\htdocs\\smartyBoard\\templates\\index.html',
-      1 => 1567408752,
+      1 => 1567503875,
       2 => 'file',
     ),
   ),
@@ -21,13 +21,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:header.html' => 1,
   ),
 ),false)) {
-function content_5d6cc2d84f1a40_95452098 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d6e3a1ab09823_04593755 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
     <body>
         <div class="container">
-
 
             <h3>
                 <p class='text-center text-info'>歡迎！<?php if ($_smarty_tpl->tpl_vars['memberMail']->value) {
@@ -49,8 +48,6 @@ echo "訪客";
                 <a href="signUp.php" class="btn btn-md btn-danger pull-right">註冊</a>
                 <a href="login.php" class="btn btn-md btn-success pull-right">使用者登入</a></h2>
             <?php }?>
-
-
 
             <table class="table table-hover">
                 <thead>
@@ -107,11 +104,11 @@ $_smarty_tpl->_assignInScope('row', $_prefixVariable1);?>
                                             <span class="glyphicon glyphicon-remove"></span> 刪除</button> |
                                         <?php }?>
  
-
-                                <a href="details.php?ID=<?php echo $_smarty_tpl->tpl_vars['row']->value['ID'];?>
+                                    
+                                        <a href="details.php?ID=<?php echo $_smarty_tpl->tpl_vars['row']->value['ID'];?>
 " class="btn btn-primary btn-xs"> 詳細內容</a>
 
-                                </form>
+                                    </form>
 
                                 </span>
                             </td>

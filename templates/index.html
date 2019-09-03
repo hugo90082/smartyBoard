@@ -3,7 +3,6 @@
     <body>
         <div class="container">
 
-
             <h3>
                 <p class='text-center text-info'>歡迎！{{if $memberMail}}{{$memberMail}}{{else}}{{"訪客"}}{{/if}}</p>
             </h3>
@@ -20,8 +19,6 @@
                 <a href="signUp.php" class="btn btn-md btn-danger pull-right">註冊</a>
                 <a href="login.php" class="btn btn-md btn-success pull-right">使用者登入</a></h2>
             {{/if}}
-
-
 
             <table class="table table-hover">
                 <thead>
@@ -69,10 +66,10 @@
                                             <span class="glyphicon glyphicon-remove"></span> 刪除</button> |
                                         {{/if}}
  
+                                    
+                                        <a href="details.php?ID={{$row['ID']}}" class="btn btn-primary btn-xs"> 詳細內容</a>
 
-                                <a href="details.php?ID={{$row['ID']}}" class="btn btn-primary btn-xs"> 詳細內容</a>
-
-                                </form>
+                                    </form>
 
                                 </span>
                             </td>

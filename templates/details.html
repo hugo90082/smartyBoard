@@ -58,8 +58,25 @@
 							<h4>{{$rowReply['reply']}}</h4>
 						</td>
 						<td>
-							<h5 class='pull-right text-warning'>&nbsp;&nbsp;{{$rowReply['datetime']}}</h5>
-							<h5 class='pull-right text-warning'>建立者：{{$rowReply['mail']}} || </h5>
+							<form method="post" action="delete.php"> 
+								<h5 class='pull-right text-warning'>&nbsp;&nbsp;{{$rowReply['datetime']}}</h5>
+								<h5 class='pull-right text-warning'>建立者：{{$rowReply['mail']}} || </h5>
+								{{if isset($smarty.session.memberID) && ($row['memberID'] == $smarty.session.memberID)}}
+								
+									<a href="edit.php?ID={{$row['ID']}}" class="btn btn-xs btn-info">
+										<span class="glyphicon glyphicon-pencil"></span> 修改</a> |
+
+								{{/if}}    
+								{{if isset($smarty.session.memberID) && ($smarty.session.memberID == 1 || $row['memberID'] == $smarty.session.memberID)}}
+									<input id="msID" name="msID" type="hidden" value="{{$row['ID']}}"> 
+									<input type="hidden" id="memberID" name="memberID" value="{{$row['memberID']}}">
+									<button type="submit" class="btn btn-xs btn-danger">
+									<span class="glyphicon glyphicon-remove"></span> 刪除</button>
+								{{/if}}
+								
+   
+							</form>
+
 						</td>	
 					</tr>
 
@@ -68,7 +85,7 @@
 			{{/if}}
 			<form method="post" action="detailsReply.php?ID={{$id}}" class="form-horizontal">		
 				<input cols="100" rows="1" maxlength="70" class="form-control input-md" id="reply" name="reply"><legend></legend>
-				<!-- <input type="hidden" id="ID" name="ID" value="{{$id}}"> -->
+				<input type="hidden" id="ID" name="ID" value="{{$id}}">
 				<button class="btn btn-md btn-primary pull-right" id="send" name="send" value="send">回復</button>
 
 				<h4><p class='text-center text-danger'>{{$NoValue}}</p></h4>
