@@ -1,14 +1,11 @@
 <?php
-    require_once 'header.php';
-    loginCheck();
+require_once 'header.php';
+loginCheck();
 
 
 
-	$NoValue = isset($_SESSION['NoValue'])?$_SESSION['NoValue']:"<br>";
+$NoValue = isset($_SESSION['NoValue']) ? $_SESSION['NoValue'] : "<br>";
 
-	$smarty->assign('NoValue',$NoValue);
-    unset($_SESSION['NoValue']);
-    $smarty->display('create.html');
-    
-?>
-    
+$smarty->assign('NoValue', $NoValue);
+unset($_SESSION['NoValue']);
+$smarty->display('create.html');

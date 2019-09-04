@@ -1,102 +1,91 @@
 {{include file="header.html"}}
 
-	<body>
+<body>
 
-		<div class="container">
-			<form method="post" action="index.php" class="form-horizontal">
+	<div class="container">
 
-				<fieldset>
-				
-					<!-- Form Name -->
-					<legend>
-						<h2>詳細內容
-							<button type="submit" class="btn btn-md btn-danger pull-right" id="back" name="back" value="back">回首頁</button>
-						</h2>	
 
-						<h4 class='pull-right text-warning'>&nbsp;&nbsp;{{$row["datetime"]}}</h4>
-						<h4 class='pull-right text-warning'>  主題建立者：{{$row["mail"]}} || </h4>
-					
-					</legend>
-					
+		<fieldset>
 
-					<table>
-						<!-- Text input-->
-						<tr>
-							<h2><div class="form-group">
-									<p class="bg-success">
-										主題：{{$row["topic"]}}
-									</p>
-								</div>
-							</h2>
-						</tr>
-						<tr> 
-							<!-- Password input-->
-							<h4> 
-								<div class="text-info">
-									內容：{{$row["content"]}}
+			<!-- Form Name -->
+			<legend>
+				<h2>詳細內容
+					<a href="/index.php"><button class="btn btn-md btn-danger pull-right">回首頁</button></a>
+				</h2>
 
-								</div>
-							</h4>
-						</tr>
-						<!-- Button (Double) -->
-						<tr><legend></legend>
-							
-						</tr>
-					</table>
-				</fieldset>	
-			</form>
-			{{$rowReplyCount = $resultReply->rowCount()}}
-			
-			{{if $rowReplyCount!=0}}
-			
-			<h3>回復：</h3>
-			<table class="table table-hover">
-				{{while $rowReply = $resultReply->fetch()}}
-				
-					<tr>
-						<td>
-							<h4>{{$rowReply['reply']}}</h4>
-						</td>
-						<td>
-							<form method="post" action="delete.php"> 
-								<h5 class='pull-right text-warning'>&nbsp;&nbsp;{{$rowReply['datetime']}}</h5>
-								<h5 class='pull-right text-warning'>建立者：{{$rowReply['mail']}} || </h5>
-								{{if isset($smarty.session.memberID) && ($row['memberID'] == $smarty.session.memberID)}}
-								
-									<a href="edit.php?ID={{$row['ID']}}" class="btn btn-xs btn-info">
-										<span class="glyphicon glyphicon-pencil"></span> 修改</a> |
+				<h4 class='pull-right text-warning'>&nbsp;&nbsp;{{$row["datetime"]}}</h4>
+				<h4 class='pull-right text-warning'> 主題建立者：{{$row["mail"]}} || </h4>
 
-								{{/if}}    
-								{{if isset($smarty.session.memberID) && ($smarty.session.memberID == 1 || $row['memberID'] == $smarty.session.memberID)}}
-									<input id="msID" name="msID" type="hidden" value="{{$row['ID']}}"> 
-									<input type="hidden" id="memberID" name="memberID" value="{{$row['memberID']}}">
-									<button type="submit" class="btn btn-xs btn-danger">
-									<span class="glyphicon glyphicon-remove"></span> 刪除</button>
-								{{/if}}
-								
-   
-							</form>
+			</legend>
 
-						</td>	
-					</tr>
 
-				{{/while}}
+			<table>
+				<!-- Text input-->
+				<tr>
+					<h2>
+						<div class="form-group">
+							<p class="bg-success">
+								主題：{{$row["topic"]}}
+							</p>
+						</div>
+					</h2>
+				</tr>
+				<tr>
+					<!-- Password input-->
+					<h4>
+						<div class="text-info">
+							內容：{{$row["content"]}}
+
+						</div>
+					</h4>
+				</tr>
+				<!-- Button (Double) -->
+				<tr>
+					<legend></legend>
+
+				</tr>
 			</table>
-			{{/if}}
-			<form method="post" action="detailsReply.php?ID={{$id}}" class="form-horizontal">		
-				<input cols="100" rows="1" maxlength="70" class="form-control input-md" id="reply" name="reply"><legend></legend>
-				<input type="hidden" id="ID" name="ID" value="{{$id}}">
-				<button class="btn btn-md btn-primary pull-right" id="send" name="send" value="send">回復</button>
+		</fieldset>
 
-				<h4><p class='text-center text-danger'>{{$NoValue}}</p></h4>
+		{{$rowReplyCount = $resultReply->rowCount()}}
 
-			</form>		
-				
-			
+		{{if $rowReplyCount!=0}}
 
-		</div>
+		<h3>回復：</h3>
+		<table class="table table-hover">
+			{{while $rowReply = $resultReply->fetch()}}
 
-	</body>
+			<tr>
+				<td>
+					<h4>{{$rowReply['reply']}}</h4>
+				</td>
+				<td>
+					<h5 class='pull-right text-warning'>&nbsp;&nbsp;{{$rowReply['datetime']}}</h5>
+					<h5 class='pull-right text-warning'>建立者：{{$rowReply['mail']}} || </h5>
+				</td>
+			</tr>
+
+			{{/while}}
+		</table>
+		{{/if}}
+		<form method="post" action="detailsReply.php?ID={{$id}}" class="form-horizontal">
+			<input cols="100" rows="1" maxlength="70" class="form-control input-md" id="reply" name="reply">
+			<legend></legend>
+			<!-- <input type="hidden" id="ID" name="ID" value="{{$id}}"> -->
+			<button class="btn btn-md btn-primary pull-right" id="send" name="send" value="send">回復</button>
+
+			<h4>
+				<p class='text-center text-danger'>{{$NoValue}}</p>
+			</h4>
+
+		</form>
+
+
+
+	</div>
+
+</body>
+
 </html>
 <!-- <script>
 	$("#send").on("click", function(){

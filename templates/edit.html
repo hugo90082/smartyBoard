@@ -1,51 +1,60 @@
 {{include file="header.html"}}
-    <body>
 
-        <div class="container">
+<body>
 
-            <form method="post" action="./update.php" class="form-horizontal">
-                
-                <fieldset>
+    <div class="container">
 
-                    <!-- Form Name -->
-                    <legend><h2>修改主題內容</h2></legend>
+        <form method="post" action="./update.php" class="form-horizontal">
 
-                    <!-- Text input-->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="topic">標題:</label>  
-                        <div class="col-md-4">
-                            <input id="topic" maxlength="50" name="topic" value="{{$row['topic']}}" type="text" placeholder="" class="form-control input-md">
-                        
-                        </div>
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend>
+                    <h2>修改主題內容</h2>
+                </legend>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="topic">標題:</label>
+                    <div class="col-md-4">
+                        <input id="topic" maxlength="50" name="topic" value="{{$row['topic']}}" type="text"
+                            placeholder="" class="form-control input-md">
+
                     </div>
+                </div>
 
-                    <!-- Text input-->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="content">內容:</label>  
-                        <div class="col-md-4">
-                            <textarea class="form-control input-md" id="content" name="content" rows="2" maxlength="100">{{$row['content']}}</textarea>
-                        </div>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="content">內容:</label>
+                    <div class="col-md-4">
+                        <textarea class="form-control input-md" id="content" name="content" rows="2"
+                            maxlength="100">{{$row['content']}}</textarea>
                     </div>
-                    <input id="msID" name="msID" type="hidden" value="{{$id}}"> 
+                </div>
+                <input id="msID" name="msID" type="hidden" value="{{$id}}">
 
-                        
-                    <h4><p class='text-center text-danger'>{{$smarty.session.NoValue}}</p></h4>
 
-                        
-                    <!-- Button (Double) -->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="okOrCancel"></label>
-                        <div class="col-md-8">
-                            <input type="hidden" id="memberID" name="memberID" value="{{$row['memberID']}}">
-                            <button type="submit" id="ok" name="ok" class="btn btn-success" value="OK">確定修改</button>
-                            <button type="submit" id="cancel" name="cancel" class="btn btn-danger" value="cancel">取消</button>
-                        </div>
+                <h4>
+                    <p class='text-center text-danger'>{{$smarty.session.NoValue}}</p>
+                </h4>
+
+
+                <!-- Button (Double) -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="okOrCancel"></label>
+                    <div class="col-md-8">
+                        <input type="hidden" id="memberID" name="memberID" value="{{$row['memberID']}}">
+                        <button type="submit" id="ok" name="ok" class="btn btn-success" value="OK">確定修改</button>
+                        <button type="submit" id="cancel" name="cancel" class="btn btn-danger"
+                            value="cancel">取消</button>
                     </div>
+                </div>
 
-                </fieldset>
-            </form>
+            </fieldset>
+        </form>
 
-        </div>
+    </div>
 
-    </body>
+</body>
+
 </html>

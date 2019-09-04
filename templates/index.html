@@ -1,87 +1,87 @@
 {{include file="header.html"}}
 
-    <body>
-        <div class="container">
+<body>
+    <div class="container">
 
-            <h3>
-                <p class='text-center text-info'>歡迎！{{if $memberMail}}{{$memberMail}}{{else}}{{"訪客"}}{{/if}}</p>
-            </h3>
+        <h3>
+            <p class='text-center text-info'>歡迎！{{if $memberMail}}{{$memberMail}}{{else}}{{"訪客"}}{{/if}}</p>
+        </h3>
 
-            {{if isset($smarty.session.memberID)}}
-            <h2>留言板
-                <a href="logout.php" class="btn btn-md btn-danger pull-right">登出</a>
-                <a href="create.php" class="btn btn-md btn-success pull-right">
-                    <span class="glyphicon glyphicon-plus"></span> 新增主題</a>
-            </h2>
-            {{/if}} 
-            {{if !isset($smarty.session.memberID)}}
-            <h2>留言板
-                <a href="signUp.php" class="btn btn-md btn-danger pull-right">註冊</a>
-                <a href="login.php" class="btn btn-md btn-success pull-right">使用者登入</a></h2>
-            {{/if}}
+        {{if isset($smarty.session.memberID)}}
+        <h2>留言板
+            <a href="logout.php" class="btn btn-md btn-danger pull-right">登出</a>
+            <a href="create.php" class="btn btn-md btn-success pull-right">
+                <span class="glyphicon glyphicon-plus"></span> 新增主題</a>
+        </h2>
+        {{/if}}
+        {{if !isset($smarty.session.memberID)}}
+        <h2>留言板
+            <a href="signUp.php" class="btn btn-md btn-danger pull-right">註冊</a>
+            <a href="login.php" class="btn btn-md btn-success pull-right">使用者登入</a></h2>
+        {{/if}}
 
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>主題</th>
-                        <th>內容</th>
-                        <th>建立者</th>
-                        <th>更新時間</th>
-                        <th>&nbsp;</th>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>主題</th>
+                    <th>內容</th>
+                    <th>建立者</th>
+                    <th>更新時間</th>
+                    <th>&nbsp;</th>
 
-                    </tr>
-                </thead>
-                <tbody>
-                    {{while $row = $result->fetch()}}
-                        <tr>
-                            <td>
-                                <a href="details.php?ID={{$row['ID']}}">
-                                    <p class="limit_length">{{$row['topic']}}</p>
-                                </a>
-                            </td>
-                            <td>
-                                <p class="limit_length">{{$row['content']}}</p>
-                            </td>
-                            <td>
-                                {{$row['mail']}}
-                            </td>
-                            <td>
-                                {{$row['datetime']}}
-                            </td>
-                            <td>
-                                <span class="pull-right">
+                </tr>
+            </thead>
+            <tbody>
+                {{while $row = $result->fetch()}}
+                <tr>
+                    <td>
+                        <a href="details.php?ID={{$row['ID']}}">
+                            <p class="limit_length">{{$row['topic']}}</p>
+                        </a>
+                    </td>
+                    <td>
+                        <p class="limit_length">{{$row['content']}}</p>
+                    </td>
+                    <td>
+                        {{$row['mail']}}
+                    </td>
+                    <td>
+                        {{$row['datetime']}}
+                    </td>
+                    <td>
+                        <span class="pull-right">
 
-                                    <form method="post" action="delete.php"> 
-                                            
-                                        {{if isset($smarty.session.memberID) && ($row['memberID'] == $smarty.session.memberID)}}
-                                       
-                                            <a href="edit.php?ID={{$row['ID']}}" class="btn btn-xs btn-info">
-                                                <span class="glyphicon glyphicon-pencil"></span> 修改</a> |
+                            <form method="post" action="delete.php">
 
-                                        {{/if}}    
-                                        {{if isset($smarty.session.memberID) && ($smarty.session.memberID == 1 || $row['memberID'] == $smarty.session.memberID)}}
-                                            <input id="msID" name="msID" type="hidden" value="{{$row['ID']}}"> 
-                                            <input type="hidden" id="memberID" name="memberID" value="{{$row['memberID']}}">
-                                            <button type="submit" class="btn btn-xs btn-danger">
-                                            <span class="glyphicon glyphicon-remove"></span> 刪除</button> |
-                                        {{/if}}
- 
-                                    
-                                        <a href="details.php?ID={{$row['ID']}}" class="btn btn-primary btn-xs"> 詳細內容</a>
+                                {{if isset($smarty.session.memberID) && ($row['memberID'] == $smarty.session.memberID)}}
 
-                                    </form>
+                                <a href="edit.php?ID={{$row['ID']}}" class="btn btn-xs btn-info">
+                                    <span class="glyphicon glyphicon-pencil"></span> 修改</a> |
 
-                                </span>
-                            </td>
-                        </tr>
-                    {{/while}}
+                                {{/if}}
+                                {{if isset($smarty.session.memberID) && ($smarty.session.memberID == 1 || $row['memberID'] == $smarty.session.memberID)}}
+                                <input id="msID" name="msID" type="hidden" value="{{$row['ID']}}">
+                                <input type="hidden" id="memberID" name="memberID" value="{{$row['memberID']}}">
+                                <button type="submit" class="btn btn-xs btn-danger">
+                                    <span class="glyphicon glyphicon-remove"></span> 刪除</button> |
+                                {{/if}}
 
 
+                                <a href="details.php?ID={{$row['ID']}}" class="btn btn-primary btn-xs"> 詳細內容</a>
 
-                </tbody>
-            </table>
-        </div>
+                            </form>
 
-    </body>
+                        </span>
+                    </td>
+                </tr>
+                {{/while}}
 
-    </html>
+
+
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>
