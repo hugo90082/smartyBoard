@@ -6,7 +6,7 @@ $memberID = htmlspecialchars($_POST["memberID"]);
 try {
     loginCheck();
 
-    if ($memberID != $_SESSION['memberID']) {
+    if ($_SESSION['memberID'] != 1 && $memberID != $_SESSION['memberID']) {
 
         echo "<script> alert('找無對應文章 將導回首頁'); window.location.replace('index.php');</script>";
         exit;

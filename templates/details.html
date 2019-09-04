@@ -66,41 +66,55 @@
 			</tr>
 
 			{{/while}}
+			<div id="newReply"></div>
 		</table>
 		{{/if}}
-		<form method="post" action="detailsReply.php?ID={{$id}}" class="form-horizontal">
-			<input cols="100" rows="1" maxlength="70" class="form-control input-md" id="reply" name="reply">
-			<legend></legend>
-			<!-- <input type="hidden" id="ID" name="ID" value="{{$id}}"> -->
-			<button class="btn btn-md btn-primary pull-right" id="send" name="send" value="send">回復</button>
+		<!-- <form method="post" action="detailsReply.php?ID={{$id}}" class="form-horizontal"> -->
+		<input cols="100" rows="1" maxlength="70" class="form-control input-md" id="reply" name="reply">
+		<legend></legend>
+		<input type="hidden" id="ID" name="ID" value="{{$id}}">
+		<button class="btn btn-md btn-primary pull-right" id="send" name="send" value="send">回復</button>
 
-			<h4>
-				<p class='text-center text-danger'>{{$NoValue}}</p>
-			</h4>
+		<h4>
+			<p class='text-center text-danger'>{{$NoValue}}</p>
+		</h4>
 
-		</form>
+		<!-- </form> -->
 
 
 
 	</div>
+	{{include file="src.html"}}
+	<script>
+		$("#send").on("click", function () {
+			let dataToServer = {
+				reply: $("#reply").val(),
+				ID: $("#ID").val()
+			}
 
+			$.ajax({
+				type: "POST",
+				url: "./detailsReply.php",
+				data: dataToServer,
+				success: function (e) {
+					let newReplyHtml = `
+			<tr>
+				<td>
+					<h4>{{$rowReply['reply']}}</h4>
+				</td>
+				<td>
+					<h5 class='pull-right text-warning'>&nbsp;&nbsp;{{$rowReply['datetime']}}</h5>
+					<h5 class='pull-right text-warning'>建立者：{{$rowReply['mail']}} || </h5>
+				</td>
+			</tr>`;
+
+					$('#newReply').html("3333333333");
+
+					//window.location.replace('details.php?ID={{$id}}');
+				}
+			})
+		})
+	</script>
 </body>
 
 </html>
-<!-- <script>
-	$("#send").on("click", function(){
-		let dataToServer = {
-			reply:$("#reply").val(),
-			ID	 :$("#ID").val()
-		}
-
-		$.ajax({
-			type:"POST",
-			url:"./detailsReply.php",
-			data: dataToServer,
-            success: function(e) {
-                window.location.replace('details.php?ID={{$id}}');
-            }
-		})
-	})
-</script> -->

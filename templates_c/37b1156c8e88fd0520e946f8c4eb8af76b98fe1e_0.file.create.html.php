@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2019-09-04 05:49:48
+/* Smarty version 3.1.34-dev-7, created on 2019-09-04 09:18:06
   from 'C:\xampp\htdocs\smartyBoard\templates\create.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5d6f345cdae9c8_87989484',
+  'unifunc' => 'content_5d6f652ebfd572_73262058',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '37b1156c8e88fd0520e946f8c4eb8af76b98fe1e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\smartyBoard\\templates\\create.html',
-      1 => 1567568984,
+      1 => 1567576621,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:header.html' => 1,
   ),
 ),false)) {
-function content_5d6f345cdae9c8_87989484 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d6f652ebfd572_73262058 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -66,7 +66,7 @@ $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_s
                     <label class="col-md-4 control-label" for="okOrCancel"></label>
                     <div class="col-md-8">
                         <button type="submit" id="ok" name="ok" class="btn btn-success" value="OK">送出新增</button>
-                        <a href="/index.php"><button  class="btn btn-danger">取消</button></a>
+                        <a href="/index.php" class="btn btn-danger">取消</a>
 
                     </div>
                 </div>

@@ -1,27 +1,28 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2019-09-04 08:17:32
+/* Smarty version 3.1.34-dev-7, created on 2019-09-04 12:04:20
   from 'C:\xampp\htdocs\smartyBoard\templates\details.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5d6f56fc363096_73046277',
+  'unifunc' => 'content_5d6f8c242db777_92784672',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c7e1a72250dddfe2426bfeb0a598437aad4b1e00' => 
     array (
       0 => 'C:\\xampp\\htdocs\\smartyBoard\\templates\\details.html',
-      1 => 1567576639,
+      1 => 1567591446,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
     'file:header.html' => 1,
+    'file:src.html' => 1,
   ),
 ),false)) {
-function content_5d6f56fc363096_73046277 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d6f8c242db777_92784672 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -100,48 +101,52 @@ $_smarty_tpl->_assignInScope('rowReply', $_prefixVariable1);?>
 
 			<?php }?>
 
+			<div id="newReply"></div>
 		</table>
 		<?php }?>
-		<form method="post" action="detailsReply.php?ID=<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
-" class="form-horizontal">
-			<input cols="100" rows="1" maxlength="70" class="form-control input-md" id="reply" name="reply">
-			<legend></legend>
-			<!-- <input type="hidden" id="ID" name="ID" value="<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
-"> -->
-			<button class="btn btn-md btn-primary pull-right" id="send" name="send" value="send">回復</button>
+		<!-- <form method="post" action="detailsReply.php?ID=<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+" class="form-horizontal"> -->
+		<input cols="100" rows="1" maxlength="70" class="form-control input-md" id="reply" name="reply">
+		<legend></legend>
+		<input type="hidden" id="ID" name="ID" value="<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+">
+		<button class="btn btn-md btn-primary pull-right" id="send" name="send" value="send">回復</button>
 
-			<h4>
-				<p class='text-center text-danger'><?php echo $_smarty_tpl->tpl_vars['NoValue']->value;?>
+		<h4>
+			<p class='text-center text-danger'><?php echo $_smarty_tpl->tpl_vars['NoValue']->value;?>
 </p>
-			</h4>
+		</h4>
 
-		</form>
+		<!-- </form> -->
 
 
 
 	</div>
+	<?php $_smarty_tpl->_subTemplateRender("file:src.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+	<?php echo '<script'; ?>
+>
+		$("#send").on("click", function () {
+			let dataToServer = {
+				reply: $("#reply").val(),
+				ID: $("#ID").val()
+			}
 
+			$.ajax({
+				type: "POST",
+				url: "./detailsReply.php",
+				data: dataToServer,
+				success: function (e) {
+					$('#newReply').html("3333333333");
+
+					//window.location.replace('details.php?ID=<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+');
+				}
+			})
+		})
+	<?php echo '</script'; ?>
+>
 </body>
 
-</html>
-<!-- <?php echo '<script'; ?>
->
-	$("#send").on("click", function(){
-		let dataToServer = {
-			reply:$("#reply").val(),
-			ID	 :$("#ID").val()
-		}
-
-		$.ajax({
-			type:"POST",
-			url:"./detailsReply.php",
-			data: dataToServer,
-            success: function(e) {
-                window.location.replace('details.php?ID=<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
-');
-            }
-		})
-	})
-<?php echo '</script'; ?>
-> --><?php }
+</html><?php }
 }

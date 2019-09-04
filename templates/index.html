@@ -81,7 +81,21 @@
             </tbody>
         </table>
     </div>
-
+    {{include file="src.html"}}
+    <script>
+        $(window).scroll(function () {
+            var scrollTop = $(this).scrollTop();
+            var scrollHeight = $(document).height();
+            var windowHeight = $(this).height();
+            if (scrollTop.windowHeight == scrollHeight) {
+                console.log("11111")
+                //此處是滾動條到底部時候觸發的事件，在這裡寫要載入的資料，或者是拉動滾動條的操作
+                //var page = Number($("#redgiftNextPage").attr('currentpage'))   1;
+                //redgiftList(page);
+                //$("#redgiftNextPage").attr('currentpage', page   1);
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -1,27 +1,28 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2019-09-04 05:42:34
+/* Smarty version 3.1.34-dev-7, created on 2019-09-04 09:17:20
   from 'C:\xampp\htdocs\smartyBoard\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5d6f32aa58c924_51212443',
+  'unifunc' => 'content_5d6f65002c29d3_25691070',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f7226ec00f6e19506400a49d5a1295c6547bc164' => 
     array (
       0 => 'C:\\xampp\\htdocs\\smartyBoard\\templates\\index.html',
-      1 => 1567567262,
+      1 => 1567581437,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
     'file:header.html' => 1,
+    'file:src.html' => 1,
   ),
 ),false)) {
-function content_5d6f32aa58c924_51212443 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d6f65002c29d3_25691070 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -121,7 +122,24 @@ $_smarty_tpl->_assignInScope('row', $_prefixVariable1);?>
             </tbody>
         </table>
     </div>
-
+    <?php $_smarty_tpl->_subTemplateRender("file:src.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+    <?php echo '<script'; ?>
+>
+        $(window).scroll(function () {
+            var scrollTop = $(this).scrollTop();
+            var scrollHeight = $(document).height();
+            var windowHeight = $(this).height();
+            if (scrollTop.windowHeight == scrollHeight) {
+                console.log("11111")
+                //此處是滾動條到底部時候觸發的事件，在這裡寫要載入的資料，或者是拉動滾動條的操作
+                //var page = Number($("#redgiftNextPage").attr('currentpage'))   1;
+                //redgiftList(page);
+                //$("#redgiftNextPage").attr('currentpage', page   1);
+            }
+        });
+    <?php echo '</script'; ?>
+>
 </body>
 
 </html><?php }
