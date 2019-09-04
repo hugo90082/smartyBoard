@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2019-09-04 06:27:03
+/* Smarty version 3.1.34-dev-7, created on 2019-09-04 08:17:32
   from 'C:\xampp\htdocs\smartyBoard\templates\details.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5d6f3d175f1315_14961613',
+  'unifunc' => 'content_5d6f56fc363096_73046277',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c7e1a72250dddfe2426bfeb0a598437aad4b1e00' => 
     array (
       0 => 'C:\\xampp\\htdocs\\smartyBoard\\templates\\details.html',
-      1 => 1567571215,
+      1 => 1567576639,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:header.html' => 1,
   ),
 ),false)) {
-function content_5d6f3d175f1315_14961613 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d6f56fc363096_73046277 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -35,7 +35,7 @@ $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_s
 			<!-- Form Name -->
 			<legend>
 				<h2>詳細內容
-					<a href="/index.php"><button class="btn btn-md btn-danger pull-right">回首頁</button></a>
+					<a href="/index.php" class="btn btn-md btn-danger pull-right">回首頁</a>
 				</h2>
 
 				<h4 class='pull-right text-warning'>&nbsp;&nbsp;<?php echo $_smarty_tpl->tpl_vars['row']->value["datetime"];?>

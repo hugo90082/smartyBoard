@@ -8,10 +8,7 @@ $memberID = htmlspecialchars($_POST["memberID"]);
 try {
     loginCheck();
 
-    if (isset($_POST["cancel"]) && $_POST["cancel"] == "cancel") {
-
-        header("location:index.php"); //判斷是否按取消
-    } else if ($topic == "" || $content == "") { //判斷是否空值
+   if ($topic == "" || $content == "") { //判斷是否空值
 
         $_SESSION['NoValue'] = "標題或內容不得為空值";
         header("location:edit.php?ID=$id");

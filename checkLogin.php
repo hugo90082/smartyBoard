@@ -17,10 +17,7 @@ try {
     $rowCount = $result->rowCount();
 
 
-    if (isset($_POST["cancel"]) && ($_POST["cancel"] == "cancel")) {
-        unset($_SESSION['mail']);
-        header("location:index.php"); //判斷是否按回首頁
-    } elseif ($rowCount == 1 && !isset($_SESSION['memberID'])) {
+   if ($rowCount == 1 && !isset($_SESSION['memberID'])) {
         session_unset();
         $_SESSION['memberMail'] = $row["mail"];
         $_SESSION['memberID'] = $row["memberID"];

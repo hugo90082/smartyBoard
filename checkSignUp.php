@@ -8,10 +8,7 @@ $passwordCheck = htmlspecialchars($_POST["passwordCheck"]);
 try {
 
 
-    if (isset($_POST["cancel"]) && ($_POST["cancel"] == "cancel")) {
-        header("location:index.php"); //判斷是否按取消
-
-    } else if ($mail == "" || $password == "" || $passwordCheck == "") { //判斷是否空值
+    if ($mail == "" || $password == "" || $passwordCheck == "") { //判斷是否空值
 
         echo "<script> alert('欄位不得為空值'); window.location.replace('signUp.php');</script>";
     } else if ($password != $passwordCheck) {
@@ -34,9 +31,9 @@ try {
         echo "<script> alert('註冊成功 請重新登入'); window.location.replace('login.php');</script>";
     }
 } catch (PDOException $err) {
-
-
     echo "<script> alert('此帳號已被註冊'); window.location.replace('signUp.php');</script>";
+    echo "Error: " . $err->getMessage();
+    
     $db->rollback();
     exit();
 }
