@@ -83,16 +83,24 @@
     </div>
     {{include file="src.html"}}
     <script>
+        trLength = $("table tr").length;
         $(window).scroll(function () {
-            var scrollTop = $(this).scrollTop();
-            var scrollHeight = $(document).height();
-            var windowHeight = $(this).height();
-            if (scrollTop.windowHeight == scrollHeight) {
-                console.log("11111")
-                //此處是滾動條到底部時候觸發的事件，在這裡寫要載入的資料，或者是拉動滾動條的操作
-                //var page = Number($("#redgiftNextPage").attr('currentpage'))   1;
-                //redgiftList(page);
-                //$("#redgiftNextPage").attr('currentpage', page   1);
+            let scrollTop = $(this).scrollTop();
+            let scrollHeight = $(document).height();
+            let windowHeight = $(this).height();
+            
+            if (scrollTop+windowHeight == scrollHeight) {
+                $.ajax({
+				    type: "GET",
+				    url: "./index.php?trLength="+trLength,
+				    success: function (e) {
+                        trLength+=50
+                        console.log(e)
+                        $("tbody").html(e);
+					
+
+				    }
+			    })
             }
         });
     </script>

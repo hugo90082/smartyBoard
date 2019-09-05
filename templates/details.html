@@ -53,6 +53,7 @@
 
 		<h3>回復：</h3>
 		<table class="table table-hover">
+		
 			{{while $rowReply = $resultReply->fetch()}}
 
 			<tr>
@@ -66,9 +67,10 @@
 			</tr>
 
 			{{/while}}
-			<div id="newReply"></div>
-		</table>
 		{{/if}}
+		</table>
+
+
 		<!-- <form method="post" action="detailsReply.php?ID={{$id}}" class="form-horizontal"> -->
 		<input cols="100" rows="1" maxlength="70" class="form-control input-md" id="reply" name="reply">
 		<legend></legend>
@@ -97,20 +99,14 @@
 				url: "./detailsReply.php",
 				data: dataToServer,
 				success: function (e) {
-					let newReplyHtml = `
-			<tr>
-				<td>
-					<h4>{{$rowReply['reply']}}</h4>
-				</td>
-				<td>
-					<h5 class='pull-right text-warning'>&nbsp;&nbsp;{{$rowReply['datetime']}}</h5>
-					<h5 class='pull-right text-warning'>建立者：{{$rowReply['mail']}} || </h5>
-				</td>
-			</tr>`;
+					$(".container").remove()
+					$('body').html(e);
+					$("body meta").remove()
+					$("body title").remove()
+					$("body link").remove()
+					$("body script").first().remove()
+					$("body style").remove()
 
-					$('#newReply').html("3333333333");
-
-					//window.location.replace('details.php?ID={{$id}}');
 				}
 			})
 		})

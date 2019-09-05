@@ -25,9 +25,11 @@ try {
         $result->bindValue(':reply', $reply);
 
         $result->execute();
-
+        $_GET["ID"] = $messageID;
         $db = NULL;
-        
+        include_once('details.php');
+
+
 
         // header("location:details.php?ID=$messageID");
     }

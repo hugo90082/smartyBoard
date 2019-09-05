@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2019-09-04 09:17:20
+/* Smarty version 3.1.34-dev-7, created on 2019-09-05 11:12:16
   from 'C:\xampp\htdocs\smartyBoard\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5d6f65002c29d3_25691070',
+  'unifunc' => 'content_5d70d170c93247_99399224',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f7226ec00f6e19506400a49d5a1295c6547bc164' => 
     array (
       0 => 'C:\\xampp\\htdocs\\smartyBoard\\templates\\index.html',
-      1 => 1567581437,
+      1 => 1567674733,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:src.html' => 1,
   ),
 ),false)) {
-function content_5d6f65002c29d3_25691070 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d70d170c93247_99399224 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -126,16 +126,24 @@ $_smarty_tpl->_assignInScope('row', $_prefixVariable1);?>
 ?>
     <?php echo '<script'; ?>
 >
+        trLength = $("table tr").length;
         $(window).scroll(function () {
-            var scrollTop = $(this).scrollTop();
-            var scrollHeight = $(document).height();
-            var windowHeight = $(this).height();
-            if (scrollTop.windowHeight == scrollHeight) {
-                console.log("11111")
-                //此處是滾動條到底部時候觸發的事件，在這裡寫要載入的資料，或者是拉動滾動條的操作
-                //var page = Number($("#redgiftNextPage").attr('currentpage'))   1;
-                //redgiftList(page);
-                //$("#redgiftNextPage").attr('currentpage', page   1);
+            let scrollTop = $(this).scrollTop();
+            let scrollHeight = $(document).height();
+            let windowHeight = $(this).height();
+            
+            if (scrollTop+windowHeight == scrollHeight) {
+                $.ajax({
+				    type: "GET",
+				    url: "./index.php?trLength="+trLength,
+				    success: function (e) {
+                        trLength+=50
+                        console.log(e)
+                        $("tbody").html(e);
+					
+
+				    }
+			    })
             }
         });
     <?php echo '</script'; ?>
