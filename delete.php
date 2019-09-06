@@ -16,7 +16,7 @@ try {
         $result->bindValue(':memberID', $memberID);
         $result->execute();
         //echo "<script> alert('刪除成功'); window.location.replace('index.php');</script>";
-
+        echo $result->execute();
     }
 } catch (PDOException $err) {
     echo "Error: " . $err->getMessage();

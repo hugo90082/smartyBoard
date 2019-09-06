@@ -28,7 +28,7 @@
                 {{if isset($smarty.session.memberID) && ($smarty.session.memberID == 1 || $row['memberID'] == $smarty.session.memberID)}}
                 <input id="msID" name="msID" type="hidden" value="{{$row['ID']}}">
                 <input type="hidden" id="memberID" name="memberID" value="{{$row['memberID']}}">
-                <button type="submit" class="btn btn-xs btn-danger">
+                <button class="deleteMs btn btn-xs btn-danger">
                     <span class="glyphicon glyphicon-remove"></span> 刪除</button> |
                 {{/if}}
 
@@ -41,3 +41,4 @@
     </td>
 </tr>
 {{/while}}
+{{include file="utils.js"}}

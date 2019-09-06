@@ -24,8 +24,6 @@ try {
         $result->bindValue(':content', $content);
         $result->execute();
 
-        $db = NULL;
-
         header("location:index.php");
     }
 } catch (PDOException $err) {

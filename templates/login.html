@@ -2,8 +2,8 @@
 
 <body>
 
-	<div class="container">
-		<form method="post" action="./checkLogin.php" class="form-horizontal">
+	<div class="container form-horizontal">
+		
 
 			<fieldset>
 
@@ -39,13 +39,13 @@
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="button1id"></label>
 					<div class="col-md-8">
-						<button type="submit" id="login" name="login" class="btn btn-primary" value="OK">登入</button>
+						<button id="login" name="login" class="btn btn-primary" value="OK">登入</button>
 						<a href="/index.php" class="btn btn-danger">回首頁</a>
 					</div>
 				</div>
 
 			</fieldset>
-		</form>
+		
 
 	</div>
 	{{include file="src.html"}}
@@ -66,6 +66,34 @@
 				document.getElementById('login').disabled = true;
 			}
 		}
+
+		$("#login").on('click',function(){
+			let dataToServer = {
+				mail:$('#mail').val(),
+				password:$('#password').val(),
+			}
+			$.ajax({
+				type: "POST",
+				url: "./checkLogin.php",
+				data: dataToServer,
+				success: function (e) {
+					if(e){
+						alert('登入成功'); 
+						window.location.replace('index.php');
+					}else{
+						alert('帳號或密碼錯誤'); 
+						window.location.replace('login.php');
+					}
+				},
+				error: function(){
+					alert('錯誤'); 
+				}
+			})
+
+		})
+
+
+
 	</script>
 </body>
 

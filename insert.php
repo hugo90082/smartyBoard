@@ -7,9 +7,6 @@ if (isset($_SESSION['memberID'])) {
     $memberID = $_SESSION['memberID'];
 }
 
-
-
-
 try {
     $_SESSION['NoValue'] = "";
     loginCheck();
@@ -31,8 +28,5 @@ try {
         header("location:index.php");
     }
 } catch (PDOException $err) {
-
     echo "Error: " . $err->getMessage();
-   
 }
-header("location:index.php");

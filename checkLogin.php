@@ -20,10 +20,10 @@ try {
         session_unset();
         $_SESSION['memberMail'] = $row["mail"];
         $_SESSION['memberID'] = $row["memberID"];
-        echo "<script> alert('登入成功'); window.location.replace('index.php');</script>";
+        echo true;
     } else {
         $_SESSION['mail'] = $mail;
-        echo "<script> alert('帳號或密碼錯誤'); window.location.replace('login.php'); </script>";
+        echo false;
     }
 } catch (PDOException $err) {
     echo "Error: " . $err->getMessage();

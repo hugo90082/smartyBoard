@@ -51,25 +51,25 @@
                     <td>
                         <span class="pull-right">
 
-                            <form method="post" action="delete.php">
+                            <!-- <form method="post" action="delete.php"> -->
 
-                                {{if isset($smarty.session.memberID) && ($row['memberID'] == $smarty.session.memberID)}}
+                            {{if isset($smarty.session.memberID) && ($row['memberID'] == $smarty.session.memberID)}}
 
-                                <a href="edit.php?ID={{$row['ID']}}" class="btn btn-xs btn-info">
-                                    <span class="glyphicon glyphicon-pencil"></span> 修改</a> |
+                            <a href="edit.php?ID={{$row['ID']}}" class="btn btn-xs btn-info">
+                                <span class="glyphicon glyphicon-pencil"></span> 修改</a> |
 
-                                {{/if}}
-                                {{if isset($smarty.session.memberID) && ($smarty.session.memberID == 1 || $row['memberID'] == $smarty.session.memberID)}}
-                                <input id="msID" name="msID" type="hidden" value="{{$row['ID']}}">
-                                <input type="hidden" id="memberID" name="memberID" value="{{$row['memberID']}}">
-                                <button type="submit" class="btn btn-xs btn-danger">
-                                    <span class="glyphicon glyphicon-remove"></span> 刪除</button> |
-                                {{/if}}
+                            {{/if}}
+                            {{if isset($smarty.session.memberID) && ($smarty.session.memberID == 1 || $row['memberID'] == $smarty.session.memberID)}}
+                            <input class="msID" type="hidden" value="{{$row['ID']}}">
+                            <input type="hidden" id="memberID" name="memberID" value="{{$row['memberID']}}">
+                            <button class="deleteMs btn btn-xs btn-danger">
+                                <span class="glyphicon glyphicon-remove"></span> 刪除</button> |
+                            {{/if}}
 
 
-                                <a href="details.php?ID={{$row['ID']}}" class="btn btn-primary btn-xs"> 詳細內容</a>
+                            <a href="details.php?ID={{$row['ID']}}" class="btn btn-primary btn-xs"> 詳細內容</a>
 
-                            </form>
+                            <!-- </form> -->
 
                         </span>
                     </td>
@@ -81,27 +81,43 @@
             </tbody>
         </table>
     </div>
+
     {{include file="src.html"}}
     <script>
-        
+        $('.deleteMs').on('click', function () {
+            let dataToServer = {
+                msID: $(this).prev().prev().val(),//抓delete欄位附近的input
+                memberID: $(this).prev().val()
+            }
+            $.ajax({
+                type: "POST",
+                url: "./delete.php",
+                data: dataToServer,
+                success: function (e) {
+                    $('#tr' + dataToServer.msID).remove()
+                    alert("刪除成功")
+                },
+                error: function(xhr) {
+                    alert('發生錯誤'+xhr); 
+                } 
+            })
+        });
         $(window).scroll(function () {
             let scrollTop = $(this).scrollTop();
             let scrollHeight = $(document).height();
             let windowHeight = $(this).height();
-            
-            if (scrollTop+windowHeight == scrollHeight) {
+
+            if (scrollTop + windowHeight == scrollHeight) {
                 let trLength = $("table tr").length
                 $.ajax({
-				    type: "GET",
-				    url: "./indexFlowing.php?trLength="+trLength,
-				    success: function (e) {
-                        
-                        console.log(e)
+                    type: "GET",
+                    url: "./indexFlowing.php?trLength=" + trLength,
+                    success: function (e) {
                         $("tbody").append(e);
-					
 
-				    }
-			    })
+
+                    }
+                })
             }
         });
     </script>

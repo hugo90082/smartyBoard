@@ -8,7 +8,7 @@ $result = $db->prepare("select * from
                             message left join member
                             ON message.memberID = member.memberID 
                         order by ID desc 
-                        limit 20 "); //join 發文的人帳號
+                        limit 25 "); //join 發文的人帳號
 $result->execute();
 // 3. 處理查詢結果 
 // 4. 結束連線

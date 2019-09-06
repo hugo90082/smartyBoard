@@ -11,9 +11,9 @@ $smarty = new Smarty;
 $smarty->left_delimiter = '{{';
 $smarty->right_delimiter = '}}';
 
-
 header("content-type:text/html; charset=utf-8");
 session_start();
+
 $db = new PDO("mysql:host=localhost;dbname=message_board;port=3306", "root", "");
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $db->exec("SET CHARACTER SET utf8");
