@@ -16,9 +16,6 @@ try {
 
         echo "<script> alert('找無對應文章 將導回首頁'); window.location.replace('index.php');</script>";
     } else { //送入資料庫
-        $db = new PDO("mysql:host=localhost;dbname=message_board;port=3306", "root", "");
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $db->exec("SET CHARACTER SET utf8");
         $sql = "UPDATE message SET topic=:topic, content = :content where ID = :ID and memberID = :memberID";
         $result = $db->prepare($sql);
         $result->bindValue(':ID', $id);
@@ -32,7 +29,6 @@ try {
         header("location:index.php");
     }
 } catch (PDOException $err) {
-    $db->rollback();
     echo "Error: " . $err->getMessage();
     exit();
 }

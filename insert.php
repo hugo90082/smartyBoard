@@ -19,9 +19,6 @@ try {
         $_SESSION['NoValue'] = "標題或內容不得為空值";
         header("location:create.php");
     } else { //送入資料庫
-        $db = new PDO("mysql:host=localhost;dbname=message_board;port=3306", "root", "");
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $db->exec("SET CHARACTER SET utf8");
 
         $sql = "INSERT INTO message (ID, memberID, topic,content) VALUES ('', :memberID, :topic, :content)";
         $result = $db->prepare($sql);
@@ -31,7 +28,6 @@ try {
 
         $result->execute();
 
-        $db = NULL;
         header("location:index.php");
     }
 } catch (PDOException $err) {

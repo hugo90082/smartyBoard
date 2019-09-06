@@ -75,7 +75,7 @@
 		<input cols="100" rows="1" maxlength="70" class="form-control input-md" id="reply" name="reply">
 		<legend></legend>
 		<input type="hidden" id="ID" name="ID" value="{{$id}}">
-		<button class="btn btn-md btn-primary pull-right" id="send" name="send" value="send">回復</button>
+		<button class="btn btn-md btn-primary pull-right" disabled="disabled" id="send" name="send" value="send">回復</button>
 
 		<h4>
 			<p class='text-center text-danger'>{{$NoValue}}</p>
@@ -88,6 +88,10 @@
 	</div>
 	{{include file="src.html"}}
 	<script>
+		$("#reply").keyup(function(){
+			$("#send").attr("disabled" , false);
+		})
+		
 		$("#send").on("click", function () {
 			let dataToServer = {
 				reply: $("#reply").val(),

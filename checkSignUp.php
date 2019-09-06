@@ -15,9 +15,7 @@ try {
 
         echo "<script> alert('兩次密碼不相符'); window.location.replace('signUp.php');</script>";
     } else { //送入資料庫
-        $db = new PDO("mysql:host=localhost;dbname=message_board;port=3306", "root", "");
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $db->exec("SET CHARACTER SET utf8");
+
 
         $sql = "INSERT INTO member (memberID, mail,PWD) VALUES ('', :mail, :passwordCheck)";
         $result = $db->prepare($sql);
@@ -26,14 +24,10 @@ try {
 
         $result->execute();
 
-        $db = NULL;
-
         echo "<script> alert('註冊成功 請重新登入'); window.location.replace('login.php');</script>";
     }
 } catch (PDOException $err) {
     echo "<script> alert('此帳號已被註冊'); window.location.replace('signUp.php');</script>";
     echo "Error: " . $err->getMessage();
-    
-    $db->rollback();
     exit();
 }

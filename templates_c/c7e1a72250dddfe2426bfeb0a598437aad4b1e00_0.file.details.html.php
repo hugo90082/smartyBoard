@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2019-09-05 09:37:47
+/* Smarty version 3.1.34-dev-7, created on 2019-09-06 05:30:39
   from 'C:\xampp\htdocs\smartyBoard\templates\details.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5d70bb4b5bbe40_74726920',
+  'unifunc' => 'content_5d71d2df4bb4d2_37629731',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c7e1a72250dddfe2426bfeb0a598437aad4b1e00' => 
     array (
       0 => 'C:\\xampp\\htdocs\\smartyBoard\\templates\\details.html',
-      1 => 1567667011,
+      1 => 1567740625,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:src.html' => 1,
   ),
 ),false)) {
-function content_5d70bb4b5bbe40_74726920 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d71d2df4bb4d2_37629731 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -112,7 +112,7 @@ $_smarty_tpl->_assignInScope('rowReply', $_prefixVariable1);?>
 		<legend></legend>
 		<input type="hidden" id="ID" name="ID" value="<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 ">
-		<button class="btn btn-md btn-primary pull-right" id="send" name="send" value="send">回復</button>
+		<button class="btn btn-md btn-primary pull-right" disabled="disabled" id="send" name="send" value="send">回復</button>
 
 		<h4>
 			<p class='text-center text-danger'><?php echo $_smarty_tpl->tpl_vars['NoValue']->value;?>
@@ -128,6 +128,10 @@ $_smarty_tpl->_assignInScope('rowReply', $_prefixVariable1);?>
 ?>
 	<?php echo '<script'; ?>
 >
+		$("#reply").keyup(function(){
+			$("#send").attr("disabled" , false);
+		})
+		
 		$("#send").on("click", function () {
 			let dataToServer = {
 				reply: $("#reply").val(),

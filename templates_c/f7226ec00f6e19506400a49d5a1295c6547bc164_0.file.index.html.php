@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2019-09-05 11:12:16
+/* Smarty version 3.1.34-dev-7, created on 2019-09-06 05:13:19
   from 'C:\xampp\htdocs\smartyBoard\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5d70d170c93247_99399224',
+  'unifunc' => 'content_5d71cecfaddd56_01439452',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f7226ec00f6e19506400a49d5a1295c6547bc164' => 
     array (
       0 => 'C:\\xampp\\htdocs\\smartyBoard\\templates\\index.html',
-      1 => 1567674733,
+      1 => 1567738599,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:src.html' => 1,
   ),
 ),false)) {
-function content_5d70d170c93247_99399224 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d71cecfaddd56_01439452 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -64,7 +64,8 @@ echo "訪客";
             <tbody>
                 <?php while ($_prefixVariable1 = $_smarty_tpl->tpl_vars['result']->value->fetch()) {
 $_smarty_tpl->_assignInScope('row', $_prefixVariable1);?>
-                <tr>
+                <tr id="tr<?php echo $_smarty_tpl->tpl_vars['row']->value['ID'];?>
+">
                     <td>
                         <a href="details.php?ID=<?php echo $_smarty_tpl->tpl_vars['row']->value['ID'];?>
 ">
@@ -126,20 +127,21 @@ $_smarty_tpl->_assignInScope('row', $_prefixVariable1);?>
 ?>
     <?php echo '<script'; ?>
 >
-        trLength = $("table tr").length;
+        
         $(window).scroll(function () {
             let scrollTop = $(this).scrollTop();
             let scrollHeight = $(document).height();
             let windowHeight = $(this).height();
             
             if (scrollTop+windowHeight == scrollHeight) {
+                let trLength = $("table tr").length
                 $.ajax({
 				    type: "GET",
-				    url: "./index.php?trLength="+trLength,
+				    url: "./indexFlowing.php?trLength="+trLength,
 				    success: function (e) {
-                        trLength+=50
+                        
                         console.log(e)
-                        $("tbody").html(e);
+                        $("tbody").append(e);
 					
 
 				    }

@@ -7,8 +7,7 @@ $pwd = htmlspecialchars($_POST["password"]);
 
 try {
     loginPageCheck();
-    $db = new PDO("mysql:host=localhost;dbname=message_board;port=3306", "root", "");
-    $db->exec("set names utf8");
+
     $result = $db->prepare("select * from member where mail = :mail && PWD = :PWD ");
     $result->bindValue(':mail', $mail, PDO::PARAM_STR);
     $result->bindValue(':PWD', MD5($pwd), PDO::PARAM_STR);
@@ -27,7 +26,6 @@ try {
         echo "<script> alert('帳號或密碼錯誤'); window.location.replace('login.php'); </script>";
     }
 } catch (PDOException $err) {
-    $db->rollback();
     echo "Error: " . $err->getMessage();
     exit();
 }

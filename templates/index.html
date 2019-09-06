@@ -33,7 +33,7 @@
             </thead>
             <tbody>
                 {{while $row = $result->fetch()}}
-                <tr>
+                <tr id="tr{{$row['ID']}}">
                     <td>
                         <a href="details.php?ID={{$row['ID']}}">
                             <p class="limit_length">{{$row['topic']}}</p>
@@ -83,20 +83,21 @@
     </div>
     {{include file="src.html"}}
     <script>
-        trLength = $("table tr").length;
+        
         $(window).scroll(function () {
             let scrollTop = $(this).scrollTop();
             let scrollHeight = $(document).height();
             let windowHeight = $(this).height();
             
             if (scrollTop+windowHeight == scrollHeight) {
+                let trLength = $("table tr").length
                 $.ajax({
 				    type: "GET",
-				    url: "./index.php?trLength="+trLength,
+				    url: "./indexFlowing.php?trLength="+trLength,
 				    success: function (e) {
-                        trLength+=50
+                        
                         console.log(e)
-                        $("tbody").html(e);
+                        $("tbody").append(e);
 					
 
 				    }

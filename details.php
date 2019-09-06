@@ -1,7 +1,6 @@
 <?php
 require_once 'header.php';
-$db = new PDO("mysql:host=localhost;dbname=message_board;port=3306", "root", "");
-$db->exec("set names utf8");
+
 $id = htmlspecialchars($_GET["ID"]);
 //顯示主題及內容的SQL
 $result = $db->prepare("select * from message
