@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2019-09-09 09:39:09
+/* Smarty version 3.1.34-dev-7, created on 2019-09-09 12:07:59
   from 'C:\xampp\htdocs\smartyBoard\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5d76019d3a7570_11235237',
+  'unifunc' => 'content_5d76247fa78347_93750461',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f7226ec00f6e19506400a49d5a1295c6547bc164' => 
     array (
       0 => 'C:\\xampp\\htdocs\\smartyBoard\\templates\\index.html',
-      1 => 1568014747,
+      1 => 1568014808,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:src.html' => 1,
   ),
 ),false)) {
-function content_5d76019d3a7570_11235237 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d76247fa78347_93750461 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -50,7 +50,7 @@ echo "訪客";
             <a href="login.php" class="btn btn-md btn-success pull-right">使用者登入</a></h2>
         <?php }?>
 
-        <table class="table table-hover col-xs-12">
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <th>主題</th>
