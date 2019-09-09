@@ -17,28 +17,26 @@
     <td>
         <span class="pull-right">
 
-            <form method="post" action="delete.php">
 
-                {{if isset($smarty.session.memberID) && ($row['memberID'] == $smarty.session.memberID)}}
+            {{if isset($smarty.session.memberID) && ($row['memberID'] == $smarty.session.memberID)}}
 
-                <a href="edit.php?ID={{$row['ID']}}" class="btn btn-xs btn-info">
-                    <span class="glyphicon glyphicon-pencil"></span> 修改</a> |
+            <a href="edit.php?ID={{$row['ID']}}" class="btn btn-xs btn-info">
+                <span class="glyphicon glyphicon-pencil"></span> 修改</a> |
 
-                {{/if}}
-                {{if isset($smarty.session.memberID) && ($smarty.session.memberID == 1 || $row['memberID'] == $smarty.session.memberID)}}
-                <input id="msID" name="msID" type="hidden" value="{{$row['ID']}}">
-                <input type="hidden" id="memberID" name="memberID" value="{{$row['memberID']}}">
-                <button class="deleteMs btn btn-xs btn-danger">
-                    <span class="glyphicon glyphicon-remove"></span> 刪除</button> |
-                {{/if}}
+            {{/if}}
+            {{if isset($smarty.session.memberID) && ($smarty.session.memberID == 1 || $row['memberID'] == $smarty.session.memberID)}}
+            <input id="msID" name="msID" type="hidden" value="{{$row['ID']}}">
+            <input type="hidden" id="memberID" name="memberID" value="{{$row['memberID']}}">
+            <button class="deleteMs btn btn-xs btn-danger">
+                <span class="glyphicon glyphicon-remove"></span> 刪除</button> |
+            {{/if}}
 
 
-                <a href="details.php?ID={{$row['ID']}}" class="btn btn-primary btn-xs"> 詳細內容</a>
+            <a href="details.php?ID={{$row['ID']}}" class="btn btn-primary btn-xs"> 詳細內容</a>
 
-            </form>
 
         </span>
     </td>
 </tr>
 {{/while}}
-{{include file="utils.js"}}
+{{include file="src.html"}}

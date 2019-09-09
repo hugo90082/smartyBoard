@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2019-09-06 12:01:01
+/* Smarty version 3.1.34-dev-7, created on 2019-09-09 08:56:50
   from 'C:\xampp\htdocs\smartyBoard\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5d722e5d5f56c5_33875688',
+  'unifunc' => 'content_5d75f7b2bd1af3_51250579',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f7226ec00f6e19506400a49d5a1295c6547bc164' => 
     array (
       0 => 'C:\\xampp\\htdocs\\smartyBoard\\templates\\index.html',
-      1 => 1567764058,
+      1 => 1568012149,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:src.html' => 1,
   ),
 ),false)) {
-function content_5d722e5d5f56c5_33875688 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d75f7b2bd1af3_51250579 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -88,7 +88,7 @@ $_smarty_tpl->_assignInScope('row', $_prefixVariable1);?>
                     <td>
                         <span class="pull-right">
 
-                            <!-- <form method="post" action="delete.php"> -->
+
 
                             <?php if (isset($_SESSION['memberID']) && ($_smarty_tpl->tpl_vars['row']->value['memberID'] == $_SESSION['memberID'])) {?>
 
@@ -110,7 +110,6 @@ $_smarty_tpl->_assignInScope('row', $_prefixVariable1);?>
                             <a href="details.php?ID=<?php echo $_smarty_tpl->tpl_vars['row']->value['ID'];?>
 " class="btn btn-primary btn-xs"> 詳細內容</a>
 
-                            <!-- </form> -->
 
                         </span>
                     </td>
@@ -127,44 +126,7 @@ $_smarty_tpl->_assignInScope('row', $_prefixVariable1);?>
     <?php $_smarty_tpl->_subTemplateRender("file:src.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
     <?php echo '<script'; ?>
->
-        $('.deleteMs').on('click', function () {
-            let dataToServer = {
-                msID: $(this).prev().prev().val(),//抓delete欄位附近的input
-                memberID: $(this).prev().val()
-            }
-            $.ajax({
-                type: "POST",
-                url: "./delete.php",
-                data: dataToServer,
-                success: function (e) {
-                    $('#tr' + dataToServer.msID).remove()
-                    alert("刪除成功")
-                },
-                error: function(xhr) {
-                    alert('發生錯誤'+xhr); 
-                } 
-            })
-        });
-        $(window).scroll(function () {
-            let scrollTop = $(this).scrollTop();
-            let scrollHeight = $(document).height();
-            let windowHeight = $(this).height();
-
-            if (scrollTop + windowHeight == scrollHeight) {
-                let trLength = $("table tr").length
-                $.ajax({
-                    type: "GET",
-                    url: "./indexFlowing.php?trLength=" + trLength,
-                    success: function (e) {
-                        $("tbody").append(e);
-
-
-                    }
-                })
-            }
-        });
-    <?php echo '</script'; ?>
+ src="http://localhost/smartyBoard/templates/index.js" defer><?php echo '</script'; ?>
 >
 </body>
 

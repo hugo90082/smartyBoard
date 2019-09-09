@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2019-09-06 05:35:42
+/* Smarty version 3.1.34-dev-7, created on 2019-09-09 09:01:30
   from 'C:\xampp\htdocs\smartyBoard\templates\signUp.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5d71d40e07e7f9_45108382',
+  'unifunc' => 'content_5d75f8ca22c923_93265521',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c67777198027dcd5ce21f3901c4493363e832f2c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\smartyBoard\\templates\\signUp.html',
-      1 => 1567576760,
+      1 => 1568012481,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:src.html' => 1,
   ),
 ),false)) {
-function content_5d71d40e07e7f9_45108382 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d75f8ca22c923_93265521 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -91,64 +91,7 @@ $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_s
 	<?php $_smarty_tpl->_subTemplateRender("file:src.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 	<?php echo '<script'; ?>
->
-		disabledValueMail = 0
-		disabledValuePwd = 0
-		mail.onkeyup = function () {
-			var mail = this.value;
-			var reg = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/;//判斷格式
-
-
-			if (reg.test(mail)) {
-				document.getElementById('mailValue').innerHTML = "格式正確";
-				disabledValueMail = 1
-				if (disabledValueMail == 1 && disabledValuePwd == 1) {
-					document.getElementById('signUp').disabled = false;
-				}
-
-			} else {
-				document.getElementById('mailValue').innerHTML = "mail格式不正確";
-				document.getElementById('signUp').disabled = true;
-			}
-		}
-
-		password.onkeyup = function () {
-			password = document.getElementById('password').value;
-			if (password == passwordCheck) {
-				document.getElementById('passwordValue').innerHTML = "兩次密碼相同";
-				disabledValuePwd = 1
-
-				if (disabledValueMail == 1 && disabledValuePwd == 1) {
-					document.getElementById('signUp').disabled = false;
-				}
-
-
-			} else {
-				document.getElementById('passwordValue').innerHTML = "兩次密碼不相同";
-				document.getElementById('signUp').disabled = true;
-			}
-		}
-
-		passwordCheck.onkeyup = function () {
-			passwordCheck = this.value;
-			if (password == passwordCheck) {
-				document.getElementById('passwordValue').innerHTML = "兩次密碼相同";
-				disabledValuePwd = 1
-
-				if (disabledValueMail == 1 && disabledValuePwd == 1) {
-					document.getElementById('signUp').disabled = false;
-				}
-
-
-			} else {
-				document.getElementById('passwordValue').innerHTML = "兩次密碼不相同";
-				document.getElementById('signUp').disabled = true;
-			}
-		}
-
-
-
-	<?php echo '</script'; ?>
+ src="http://localhost/smartyBoard/templates/signUp.js" defer><?php echo '</script'; ?>
 >
 </body>
 

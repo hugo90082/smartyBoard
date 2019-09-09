@@ -1,100 +1,51 @@
 {{include file="header.html"}}
 
 <body>
-
 	<div class="container form-horizontal">
-		
+		<fieldset>
+			<!-- Form Name -->
+			<legend>
+				<h2>登入</h2>
+			</legend>
 
-			<fieldset>
-
-				<!-- Form Name -->
-				<legend>
-					<h2>登入</h2>
-				</legend>
-
-				<!-- Text input-->
-				<div class="form-group">
-					<label class="col-md-4 control-label" for="ID">帳號Mail</label>
-					<div class="col-md-4">
-						<input id="mail" name="mail" type="text" placeholder="請輸入帳號mail" class="form-control input-md"
-							size="30" maxlength="30" value="{{$mail}}">
-					</div>
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="ID">帳號Mail</label>
+				<div class="col-md-4">
+					<input id="mail" name="mail" type="text" placeholder="請輸入帳號mail" class="form-control input-md"
+						size="30" maxlength="30" value="{{$mail}}">
 				</div>
+			</div>
 
-				<h4>
-					<p class='text-center text-danger' id="mailValue"></p>
-				</h4>
+			<h4>
+				<p class='text-center text-danger' id="mailValue"></p>
+			</h4>
 
-				<!-- Password input-->
-				<div class="form-group">
-					<label class="col-md-4 control-label" for="password">密碼</label>
-					<div class="col-md-4">
-						<input id="password" name="password" type="password" placeholder="請輸入密碼"
-							class="form-control input-md" size="20" maxlength="20">
+			<!-- Password input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="password">密碼</label>
+				<div class="col-md-4">
+					<input id="password" name="password" type="password" placeholder="請輸入密碼"
+						class="form-control input-md" size="20" maxlength="20">
 
-					</div>
 				</div>
+			</div>
 
-				<!-- Button (Double) -->
-				<div class="form-group">
-					<label class="col-md-4 control-label" for="button1id"></label>
-					<div class="col-md-8">
-						<button id="login" name="login" class="btn btn-primary" value="OK">登入</button>
-						<a href="/index.php" class="btn btn-danger">回首頁</a>
-					</div>
+			<!-- Button (Double) -->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="button1id"></label>
+				<div class="col-md-8">
+					<button id="login" name="login" class="btn btn-primary" value="OK">登入</button>
+					<a href="/index.php" class="btn btn-danger">回首頁</a>
 				</div>
+			</div>
 
-			</fieldset>
-		
+		</fieldset>
+
 
 	</div>
 	{{include file="src.html"}}
-	<script>
-		document.getElementById('login').disabled = true;
-		password.onkeyup = function () {
-			document.getElementById('login').disabled = false;
-		}
-		mail.onkeyup = function () {
-			var mail = this.value;
-			var reg = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/;//判斷格式
-
-			if (reg.test(mail)) {
-				document.getElementById('mailValue').innerHTML = "格式正確";
-				document.getElementById('login').disabled = false;
-			} else {
-				document.getElementById('mailValue').innerHTML = "mail格式不正確";
-				document.getElementById('login').disabled = true;
-			}
-		}
-
-		$("#login").on('click',function(){
-			let dataToServer = {
-				mail:$('#mail').val(),
-				password:$('#password').val(),
-			}
-			$.ajax({
-				type: "POST",
-				url: "./checkLogin.php",
-				data: dataToServer,
-				success: function (e) {
-					if(e){
-						alert('登入成功'); 
-						window.location.replace('index.php');
-					}else{
-						alert('帳號或密碼錯誤'); 
-						window.location.replace('login.php');
-					}
-				},
-				error: function(){
-					alert('錯誤'); 
-				}
-			})
-
-		})
-
-
-
-	</script>
+	<script src="http://localhost/smartyBoard/templates/login.js" defer></script>
 </body>
 
 

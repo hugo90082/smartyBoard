@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2019-09-06 10:47:07
+/* Smarty version 3.1.34-dev-7, created on 2019-09-09 08:38:13
   from 'C:\xampp\htdocs\smartyBoard\templates\details.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5d721d0b627041_40937364',
+  'unifunc' => 'content_5d75f355b5afd4_30422335',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c7e1a72250dddfe2426bfeb0a598437aad4b1e00' => 
     array (
       0 => 'C:\\xampp\\htdocs\\smartyBoard\\templates\\details.html',
-      1 => 1567758856,
+      1 => 1568011089,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:src.html' => 1,
   ),
 ),false)) {
-function content_5d721d0b627041_40937364 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d75f355b5afd4_30422335 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -128,34 +128,7 @@ $_smarty_tpl->_assignInScope('rowReply', $_prefixVariable1);?>
 	<?php $_smarty_tpl->_subTemplateRender("file:src.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 	<?php echo '<script'; ?>
->
-		$("#reply").keyup(function () {
-			$("#send").attr("disabled", false);
-		})
-
-		$("#send").on("click", function () {
-			let dataToServer = {
-				reply: $("#reply").val(),
-				ID: $("#ID").val()
-			}
-
-			$.ajax({
-				type: "POST",
-				url: "./detailsReply.php",
-				data: dataToServer,
-				success: function (e) {
-					$(".container").remove()
-					$('body').html(e);
-					$("body meta").remove()
-					$("body title").remove()
-					$("body link").remove()
-					$("body script").first().remove()
-					$("body style").remove()
-
-				}
-			})
-		})
-	<?php echo '</script'; ?>
+ src="http://localhost/smartyBoard/templates/details.js" defer><?php echo '</script'; ?>
 >
 </body>
 
